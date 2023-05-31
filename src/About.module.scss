@@ -1,0 +1,182 @@
+@import "variables";
+
+@mixin sm-font($color: $pale-text-color) {
+  color: $color;
+  font-size: $font-size-sm;
+}
+
+.Container {
+  display: flex;
+
+  & > :nth-child(1) {
+    flex-basis: 660px;
+  }
+
+  & > :nth-child(2) {
+    flex-basis: 350px;
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .Container {
+    & > :nth-child(1) {
+      flex-basis: auto;
+    }
+
+    & > :nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+.AboutBox {
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  width: 100%;
+}
+
+@media screen and (max-width: 896px) {
+  .AboutBox {
+    border: none;
+  }
+}
+
+.NavBox {
+}
+
+.AboutHeader {
+  height: 52px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-size: $font-size-lg;
+}
+
+.AboutBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.HeaderImage {
+  height: 200px;
+  background: url("/header.png") center/cover;
+}
+
+.Profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProfileBody {
+  position: relative;
+  height: 100%s;
+}
+
+.ProfileIcon {
+  position: absolute;
+  top: calc(-130px / 2);
+  left: 12px;
+  height: 130px;
+  width: 130px;
+  background: url("/anon-icon.png") center/102%;
+  border: 4px solid white;
+  border-radius: 9999px;
+}
+
+@media screen and (max-width: 896px) {
+  .ProfileIcon {
+    top: calc(-96px / 2);
+    height: 96px;
+    width: 96px;
+    top: calc(-96px / 2);
+  }
+}
+
+.ProfileTexts {
+  margin-top: 84px;
+  padding: 0 calc(12px + 4px);
+}
+
+@media screen and (max-width: 896px) {
+  .ProfileTexts {
+    margin-top: 60px;
+  }
+}
+
+.ProfileName {
+  font-size: $font-size-lg;
+  font-weight: bold;
+}
+
+.ProfileId {
+  @include sm-font;
+  margin-bottom: 12px;
+}
+
+.ProfileBio {
+  margin-bottom: 12px;
+}
+
+.ProfileFactors {
+  display: flex;
+  gap: 0.5rem 1rem;
+  @include sm-font;
+  flex-wrap: wrap;
+}
+
+.FactorIcon {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.FactorLinkText {
+  @include sm-font($link-text-color);
+}
+
+.Categories {
+  position: relative;
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.CategoryLink {
+  width: calc(100% / 4);
+  padding: 16px 0;
+  text-align: center;
+  position: relative;
+
+  &:hover {
+    background-color: $hover-color;
+    transition: background-color 0.3s ease-in-out;
+  }
+}
+
+.CategorySelected {
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    display: block;
+    height: 4px;
+    width: 40%;
+    background-color: $accent-color;
+    border-radius: 9999px;
+  }
+}
+
+.RuledLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto 0;
+  width: calc(100% / 4);
+  height: 4px;
+  background-color: $accent-color;
+  transition: left 0.2s ease-in;
+}
