@@ -11,10 +11,19 @@ type TweetCardProps = {
   name: string;
   userId: string;
   text: string;
-  date: string;
+  date?: string;
+  extraUrls?: string[];
 };
 
-export function TweetCard({ name, userId, text }: TweetCardProps) {
+export function TweetCard({
+  name,
+  userId,
+  text,
+  date,
+  extraUrls,
+}: TweetCardProps) {
+  const dateText = date ? date : "1分前";
+
   return (
     <article className={styles.TweetCard}>
       <div className={styles.Container}>
@@ -24,10 +33,22 @@ export function TweetCard({ name, userId, text }: TweetCardProps) {
             <div>
               <span className={styles.TweetCardName}>{name}</span>
               <span className={styles.TweetCardId}>@{userId}</span>
+              <span className={styles.TweetCardDate}>・ {dateText}</span>
             </div>
           </header>
           <div className={styles.TweetCardBody}>
             <span>{text}</span>
+            {extraUrls &&
+              extraUrls.map((url, i) => (
+                <a
+                  className={styles.TweetTextLink}
+                  key={i}
+                  href={url}
+                  target="_blank"
+                >
+                  {url}
+                </a>
+              ))}
           </div>
           <footer className={styles.ReactionMenu}>
             <div className={styles.ReactionMenuItem}>

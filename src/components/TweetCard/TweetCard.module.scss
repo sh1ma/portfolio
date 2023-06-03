@@ -36,6 +36,17 @@
 .TweetCardId {
   font-size: $font-size-sm;
   color: $pale-text-color;
+  margin-right: 4px;
+}
+
+.TweetCardDate {
+  font-size: $font-size-sm;
+  color: $pale-text-color;
+}
+
+.TweetTextLink {
+  color: $link-text-color;
+  display: block;
 }
 
 .ReactionMenu {

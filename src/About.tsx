@@ -20,6 +20,9 @@ export function About() {
   const [introductionTweets] = useState<Tweet[]>(() =>
     getTweets("Introduction")
   );
+  const [careerTweets] = useState<Tweet[]>(() => getTweets("Career").reverse());
+  const [skillsTweets] = useState<Tweet[]>(() => getTweets("Skills"));
+  const [worksTweets] = useState<Tweet[]>(() => getTweets("Works"));
 
   const [n, setN] = useState(0);
   return (
@@ -101,7 +104,6 @@ export function About() {
                         name="sh1ma"
                         userId="sh1ma"
                         text={tweet.text}
-                        date="1分前"
                       />
                     </li>
                   );
@@ -109,9 +111,55 @@ export function About() {
               </ol>
             </TabPanel>
 
-            <TabPanel>career</TabPanel>
-            <TabPanel>skills</TabPanel>
-            <TabPanel>works</TabPanel>
+            <TabPanel>
+              <ol>
+                {careerTweets.map((tweet, i) => {
+                  return (
+                    <li key={i}>
+                      <TweetCard
+                        name="sh1ma"
+                        userId="sh1ma"
+                        text={tweet.text}
+                        date={tweet.date}
+                      />
+                    </li>
+                  );
+                })}
+              </ol>
+            </TabPanel>
+            <TabPanel>
+              <ol>
+                {skillsTweets.map((tweet, i) => {
+                  return (
+                    <li key={i}>
+                      <TweetCard
+                        name="sh1ma"
+                        userId="sh1ma"
+                        text={tweet.text}
+                        date={tweet.date}
+                      />
+                    </li>
+                  );
+                })}
+              </ol>
+            </TabPanel>
+            <TabPanel>
+              <ol>
+                {worksTweets.map((tweet, i) => {
+                  return (
+                    <li key={i}>
+                      <TweetCard
+                        name="sh1ma"
+                        userId="sh1ma"
+                        text={tweet.text}
+                        date={tweet.date}
+                        extraUrls={tweet.extraUrls}
+                      />
+                    </li>
+                  );
+                })}
+              </ol>
+            </TabPanel>
           </Tabs>
           <div className={styles.Tweets}></div>
         </div>
