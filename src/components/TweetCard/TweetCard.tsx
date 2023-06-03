@@ -1,0 +1,52 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./TweetCard.module.scss";
+import {
+  faComment,
+  faHeart,
+  faShareFromSquare,
+} from "@fortawesome/free-regular-svg-icons";
+import { faRetweet } from "@fortawesome/free-solid-svg-icons";
+
+type TweetCardProps = {
+  name: string;
+  userId: string;
+  text: string;
+  date: string;
+};
+
+export function TweetCard({ name, userId, text }: TweetCardProps) {
+  return (
+    <article className={styles.TweetCard}>
+      <div className={styles.Container}>
+        <div className={styles.TweetCardIcon} />
+        <div className={styles.TweetContent}>
+          <header className={styles.TweetCardHeader}>
+            <div>
+              <span className={styles.TweetCardName}>{name}</span>
+              <span className={styles.TweetCardId}>@{userId}</span>
+            </div>
+          </header>
+          <div className={styles.TweetCardBody}>
+            <span>{text}</span>
+          </div>
+          <footer className={styles.ReactionMenu}>
+            <div className={styles.ReactionMenuItem}>
+              <span>
+                <FontAwesomeIcon icon={faComment} />
+              </span>
+            </div>
+            <span>
+              <FontAwesomeIcon icon={faRetweet} />
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faHeart} />
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faShareFromSquare} />
+            </span>
+          </footer>
+        </div>
+      </div>
+    </article>
+  );
+}

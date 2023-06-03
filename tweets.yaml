@@ -1,0 +1,42 @@
+data:
+  name: sh1ma
+  userid: sh1ma
+  tweets:
+    - category: Introduction
+      text: |
+        はじめてのついーと
+    - category: Introduction
+      text: |
+        sh1maといいます。「しま」と読みます
+    - category: Introduction
+      text: |
+        ネットでは他にもtalkaという名前をつかっていいます
+    - category: Introduction
+      text: | 
+      本名は天坂光汰です。「あまさか こうた」と読みます。）
+    - category: Introduction
+      text: |
+        二郎系食べたあとにコーヒー飲むの美味しすぎワロタ
+    - category: Introduction
+      text: |
+        気づいたら22歳だし、もうすぐ23になるのか・・・
+    - category: Introduction
+      text: |
+        Webが好きすぎる（とはいいつつ別の分野の技術を特段かじったわけではない。）
+        新しいWeb標準とか出るとワクワクする
+    - category: Introduction
+      text: |
+        VRChatではあのんちゃんっていうアバター使ってる（アイコンの女の子もそれ）
+        でも最近Emmelieちゃんもいいなと思っており・・・
+    - category: Introduction
+      text: |
+        神奈川住んでるけどそろそろ引っ越したい(マジで)
+    - category: Introduction
+      text: |
+        ずんだもん好きすぎる 一生ずんだもん動画をみてます。
+    - category: Introduction
+      text: |
+        Kawaii Future Bass、すこだ・・・ｗ
+    - category: Career
+      text: |
+        こんにちは

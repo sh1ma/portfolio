@@ -6,19 +6,19 @@ export function CommonHeader() {
   return (
     <header className={styles.CommonHeader}>
       <div className={styles.Links}>
-        <a className={styles.Link}>
+        <a href="/" className={styles.Link}>
           <div className={styles.LinkIcon}>
             <FontAwesomeIcon icon={faUser} />
           </div>
           <span>Profile</span>
         </a>
-        <a className={styles.Link}>
+        <a href="/blog" className={styles.Link}>
           <div className={styles.LinkIcon}>
             <FontAwesomeIcon icon={faBook} />
           </div>
           <span>Blog</span>
         </a>
-        <a className={styles.Link}>
+        <a href="/contact" className={styles.Link}>
           <div className={styles.LinkIcon}>
             <FontAwesomeIcon icon={faEnvelope} />
           </div>

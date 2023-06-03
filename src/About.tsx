@@ -1,13 +1,26 @@
 import styles from "@/About.module.scss";
-import {
-  faComputer,
-  faLink,
-  faMapMarkerAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import { faLink, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { TweetCard } from "@/components/TweetCard/TweetCard";
+import tweetsJson from "@/assets/tweets.json";
+
+const getTweets = (category: TweetCategory) => {
+  const allTweets = tweetsJson.data.tweets as Tweet[];
+  const introductionTweets = allTweets.filter((tweet) => {
+    return tweet.category === category;
+  });
+
+  return introductionTweets;
+};
 
 export function About() {
+  const [introductionTweets] = useState<Tweet[]>(() =>
+    getTweets("Introduction")
+  );
+
   const [n, setN] = useState(0);
   return (
     <div className={styles.Container}>
@@ -42,13 +55,17 @@ export function About() {
                     <div className={styles.FactorIcon}>
                       <FontAwesomeIcon icon={faLink} />
                     </div>
-                    <span className={styles.FactorLinkText}>
+                    <a
+                      target="_blank"
+                      href="https://github.com/sh1ma"
+                      className={styles.FactorLinkText}
+                    >
                       https://github.com/sh1ma
-                    </span>
+                    </a>
                   </div>
                   <div className={styles.Factor}>
                     <div className={styles.FactorIcon}>
-                      <FontAwesomeIcon icon={faComputer} />
+                      <FontAwesomeIcon icon={faCalendarAlt} />
                     </div>
                     <span>Programmer since 2013</span>
                   </div>
@@ -56,24 +73,46 @@ export function About() {
               </div>
             </div>
           </div>
-          <div className={styles.Categories}>
-            <div
-              className={styles.RuledLine}
-              style={{ left: `calc(100% * ${n} / 4)` }}
-            />
-            <button className={styles.CategoryLink} onClick={() => setN(0)}>
-              <span>Introduction</span>
-            </button>
-            <button className={styles.CategoryLink} onClick={() => setN(1)}>
-              <span>Career</span>
-            </button>
-            <button className={styles.CategoryLink} onClick={() => setN(2)}>
-              <span>Skills</span>
-            </button>
-            <button className={styles.CategoryLink} onClick={() => setN(3)}>
-              <span>Works</span>
-            </button>
-          </div>
+          <Tabs onSelect={(i) => setN(i)}>
+            <TabList className={styles.Categories}>
+              <div
+                className={styles.RuledLine}
+                style={{ left: `calc(100% * ${n} / 4)` }}
+              />
+              <Tab className={styles.CategoryLink}>
+                <span>Introduction</span>
+              </Tab>
+              <Tab className={styles.CategoryLink}>
+                <span>Career</span>
+              </Tab>
+              <Tab className={styles.CategoryLink}>
+                <span>Skills</span>
+              </Tab>
+              <Tab className={styles.CategoryLink}>
+                <span>Works</span>
+              </Tab>
+            </TabList>
+            <TabPanel>
+              <ol>
+                {introductionTweets.map((tweet, i) => {
+                  return (
+                    <li key={i}>
+                      <TweetCard
+                        name="sh1ma"
+                        userId="sh1ma"
+                        text={tweet.text}
+                        date="1分前"
+                      />
+                    </li>
+                  );
+                })}
+              </ol>
+            </TabPanel>
+
+            <TabPanel>career</TabPanel>
+            <TabPanel>skills</TabPanel>
+            <TabPanel>works</TabPanel>
+          </Tabs>
           <div className={styles.Tweets}></div>
         </div>
       </main>
