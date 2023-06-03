@@ -40,14 +40,15 @@ export function TweetCard({
             <span>{text}</span>
             {extraUrls &&
               extraUrls.map((url, i) => (
-                <a
-                  className={styles.TweetTextLink}
-                  key={i}
-                  href={url}
-                  target="_blank"
-                >
-                  {url}
-                </a>
+                <div key={i}>
+                  <a
+                    className={styles.TweetTextLink}
+                    href={url}
+                    target="_blank"
+                  >
+                    {url}
+                  </a>
+                </div>
               ))}
           </div>
           <footer className={styles.ReactionMenu}>

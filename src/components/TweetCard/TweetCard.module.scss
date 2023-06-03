@@ -21,6 +21,7 @@
   flex-basis: auto;
   width: 100%;
   overflow-wrap: break-word;
+  word-wrap: break-word;
   white-space: pre-wrap;
 }
 
@@ -46,7 +47,7 @@
 
 .TweetTextLink {
   color: $link-text-color;
-  display: block;
+  font-size: 14px;
 }
 
 .ReactionMenu {
